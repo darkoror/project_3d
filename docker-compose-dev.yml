@@ -1,0 +1,25 @@
+version: "3.9"
+
+volumes:
+  mysql_data:
+  redis_data:
+
+services:
+  mysql:
+    container_name: project_3d_mysql
+    image: mysql:8.0.16
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 3307:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    container_name: project_3d_redis
+    image: redis:6.0.5
+    ports:
+      - 6399:6379
+    volumes:
+      - redis_data:/data

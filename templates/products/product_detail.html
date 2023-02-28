@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          {% if product.image %}
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }} Photo">
+          {% endif %}
+
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Object Asset</h5>
+            {% if product.asset %}
+              <p><a href="{{ product.asset.url }}">{{ product.asset.name }}</a></p>
+            {% else %}
+              <p>No file available</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

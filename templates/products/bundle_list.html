@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="content-center">
+        <div class="main container-fluid padding">
+            <div style="margin-bottom: 30px;justify-content: space-between" class="row">
+                <div>
+                    <form method="get">
+                        <input type="text" name="search" id="id_search" placeholder="Search" value="{{ filterset.form.search.value|default:'' }}">
+                        {{ filterset.form.ordering }}
+                        <input type="submit" />
+                    </form>
+                </div>
+                <div class="form-group">
+                    <a href="{% url 'products:bundle-create' %}">
+                        <button class="btn btn-outline-info" type="submit">Create bundle</button>
+                    </a>
+                </div>
+            </div>
+            <div style="display: flex;flex-wrap: wrap;padding: 0" class="col-8">
+                {% for bundle in bundle_list %}
+                    <div style="" class="col-4">
+                        <a href="{% url 'products:bundle-detail' bundle.id %}">
+                            <img src="{% static 'images/folder_1.png' %}" width="200" height="200px" alt="">
+                            <hr>
+                            <h4>
+                                {{ bundle.name }}
+                            </h4>
+                        </a>
+                        <hr>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

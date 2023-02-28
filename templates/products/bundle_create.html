@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+      <legend class="border-bottom mb-4">Create bundle</legend>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Save</button>
+      </div>
+  </form>
+{% endblock %}

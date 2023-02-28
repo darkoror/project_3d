@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = {extras = ["argon2"], version = "*"}
+environs = "*"
+django-crispy-forms = "*"
+mysqlclient = "*"
+celery = "*"
+redis = "*"
+mailjet-rest = "*"
+crispy-bootstrap5 = "*"
+pillow = "*"
+django-filter = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
